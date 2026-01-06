@@ -10,6 +10,10 @@ def process_message(text, user_id=None):
     if not api_key:
         return "System Error: Gemini API Key missing."
 
+    # Special rule: If message starts with space, return "騙人"
+    if text.startswith(" "):
+        return "騙人"
+
     try:
         client = genai.Client(api_key=api_key)
         
