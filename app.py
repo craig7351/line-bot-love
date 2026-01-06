@@ -49,10 +49,11 @@ def handle_message(event):
     
     warm_text = process_message(original_text)
     
-    line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text=warm_text)
-    )
+    if warm_text:
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=warm_text)
+        )
 
 if __name__ == "__main__":
     app.run(port=5000, debug=True)

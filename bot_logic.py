@@ -19,9 +19,10 @@ def process_message(text, user_id=None):
         Maintain the original meaning but change the tone to be very caring.
         If the message is already warm, just return it or slightly enhance it.
         
-        IMPORTANT: 
+        IMPORTANT:
         1. Access the output using Traditional Chinese (繁體中文).
         2. Do NOT add the prefix in the generated text, I will add it myself.
+        3. If the message is NOT a conversational sentence (e.g., just a URL, numbers, a single symbol, code, or gibberish), return EXACTLY the string "NO_RESPONSE".
         
         Original Message: "{text}"
         
@@ -39,6 +40,8 @@ def process_message(text, user_id=None):
         
         if response.text:
             cleaned_text = response.text.strip()
+            if "NO_RESPONSE" in cleaned_text:
+                return None
             return f"暖心幫回：\n{cleaned_text}"
         
         return "Sorry, I couldn't translate that gently."
