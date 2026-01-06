@@ -23,6 +23,7 @@ def process_message(text, user_id=None):
         1. Access the output using Traditional Chinese (繁體中文).
         2. Do NOT add the prefix in the generated text, I will add it myself.
         3. If the message is NOT a conversational sentence (e.g., just a URL, numbers, a single symbol, code, or gibberish), return EXACTLY the string "NO_RESPONSE".
+        4. Output only the rewritten message. Do NOT ask questions, do NOT offer options, and do NOT ask if the rewriting is okay. Be direct.
         
         Original Message: "{text}"
         
