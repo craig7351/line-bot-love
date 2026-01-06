@@ -19,6 +19,10 @@ def process_message(text, user_id=None):
         Maintain the original meaning but change the tone to be very caring.
         If the message is already warm, just return it or slightly enhance it.
         
+        IMPORTANT: 
+        1. Access the output using Traditional Chinese (繁體中文).
+        2. Do NOT add the prefix in the generated text, I will add it myself.
+        
         Original Message: "{text}"
         
         Rewritten Message:
@@ -34,7 +38,8 @@ def process_message(text, user_id=None):
         )
         
         if response.text:
-            return response.text.strip()
+            cleaned_text = response.text.strip()
+            return f"暖心幫回：\n{cleaned_text}"
         
         return "Sorry, I couldn't translate that gently."
 
