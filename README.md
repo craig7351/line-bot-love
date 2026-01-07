@@ -26,7 +26,26 @@
     *   若訊息**開頭為空格** (例如 ` 測試`)，機器人會強制回應：「**騙人**」。
 4.  **固定格式**：所有 AI 回應皆會加上前綴 `暖心幫回：`。
 
-## 🚀 部署教學 (Deployment Guide)
+## �️ 技術架構 (Tech Stack)
+
+本專案使用以下技術構建，追求極簡與高效：
+
+*   **程式語言**: Python 3
+*   **Web 框架**: Flask (輕量級 Web 介面)
+*   **通訊協定**: Line Messaging API (SDK)
+*   **核心 AI**: Google GenAI SDK (Gemini 3 Flash Preview)
+*   **部署平台**: Render (Gunicorn Server)
+
+## 📊 程式碼規模 (Code Stats)
+
+令人驚豔的是，這個具備 AI 判斷、自動過濾、串接通訊軟體的完整應用，**僅用了約 120 行程式碼** 就完成了！
+
+*   **核心邏輯 (`bot_logic.py`)**: 約 60 行 (包含 Prompt 與特殊規則)
+*   **伺服器端 (`app.py`)**: 約 60 行 (包含 Webhook 驗證與路由)
+
+這展現了現代 AI SDK 與 Python 生態系的強大生產力。
+
+## �🚀 部署教學 (Deployment Guide)
 
 本專案設計為免費部署於 **Render.com**。
 
@@ -88,7 +107,7 @@
 
 目前的設定使用的是 **Gemini 3 Flash (Preview)** 模型。
 
-### 目前狀態：免費 (Free Preview)
+### 免費額度 (Free Preview)
 在 Google AI Studio 中，Preview 版本的模型通常提供 **免費額度** (Free Tier)，只要不超過每分鐘/每天的限制 (通常非常寬裕，例如每分鐘 15 次請求)，是完全免費的。
 
 ### 未來付費估算 (Pay-as-you-go)
