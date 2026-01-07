@@ -26,7 +26,32 @@
     *   若訊息**開頭為空格** (例如 ` 測試`)，機器人會強制回應：「**騙人**」。
 4.  **固定格式**：所有 AI 回應皆會加上前綴 `暖心幫回：`。
 
-## �️ 技術架構 (Tech Stack)
+## 🔄 運作流程 (Workflow)
+
+```mermaid
+sequenceDiagram
+    participant User as 👤 使用者
+    participant Line as 💬 Line Platform
+    participant Bot as 🤖 機器人 (Render)
+    participant AI as ✨ Google Gemini
+
+    User->>Line: 傳送訊息 (例如：滾)
+    Line->>Bot: Webhook Event (Message)
+    
+    alt 訊息開頭有空格
+        Bot-->>Line: 回覆 "騙人"
+    else 非對話內容 (網址/亂碼)
+        Bot-->>Bot: 忽略 (不回應)
+    else 正常對話
+        Bot->>AI: 發送 Prompt + 原始訊息
+        AI-->>Bot: 回傳 "暖心版" 訊息
+        Bot-->>Line: 回覆 "暖心幫回：..."
+    end
+    
+    Line-->>User: 顯示回覆訊息
+```
+
+## 🛠️ 技術架構 (Tech Stack)
 
 本專案使用以下技術構建，追求極簡與高效：
 
