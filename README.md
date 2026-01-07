@@ -73,3 +73,39 @@
    ```bash
    python app.py
    ```
+
+## 🔑 如何申請 Google Gemini API Key
+
+本專案使用 Google 的 Gemini 模型，您需要申請一組免費的 API Key 才能運作。
+
+1.  前往 **[Google AI Studio](https://aistudio.google.com/)**。
+2.  點擊左上角的 **"Get API key"**。
+3.  點擊 **"Create API key"** 按鈕。
+4.  選擇您的專案 (若無則建立新專案)，系統就會產生一組以 `AIza` 開頭的密鑰。
+5.  這就是您的 `GEMINI_API_KEY`。
+
+## 💰 費用估算 (Cost Estimation)
+
+目前的設定使用的是 **Gemini 3 Flash (Preview)** 模型。
+
+### 目前狀態：免費 (Free Preview)
+在 Google AI Studio 中，Preview 版本的模型通常提供 **免費額度** (Free Tier)，只要不超過每分鐘/每天的限制 (通常非常寬裕，例如每分鐘 15 次請求)，是完全免費的。
+
+### 未來付費估算 (Pay-as-you-go)
+假設未來進入付費模式，參考 Gemini Flash 系列的定價 (以百萬 Token 計算)：
+
+*   **輸入 (Input)**: 約 $0.50 USD / 100 萬 Tokens
+*   **輸出 (Output)**: 約 $3.00 USD / 100 萬 Tokens
+
+#### 實際使用情境試算：
+假設一句話的互動：
+*   **輸入**: Prompt (系統指令) + 使用者訊息 ≈ 100 Tokens
+*   **輸出**: 機器人回覆 (約 50 字) ≈ 50 Tokens
+
+**單次對話成本**：
+*   輸入: (100 / 1,000,000) * 0.5 = $0.00005
+*   輸出: (50 / 1,000,000) * 3.0 = $0.00015
+*   **總計**: **$0.0002 USD** (約 **0.0064 台幣**)
+
+👉 **結論**：即便付費，**1 元台幣大約可以講 150~200 句話**，非常便宜！
+
